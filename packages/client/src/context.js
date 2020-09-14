@@ -47,13 +47,14 @@ export const ContextProvider = ({ children }) => {
     const onLogin = useCallback(
         //Функция логина пользователя в комнату
         (payload) => {
-            socket.emit(ROOM_JOIN, payload); //Отправляем сокет запрос и данные комнаты и юзера
-            dispatch({ type: "JOINED", payload }); //Диспатчим комнату и юзера в initialState
+            //Отправляем сокет запрос и данные комнаты и юзера
+            socket.emit(ROOM_JOIN, payload);
+            //Диспатчим комнату и юзера в initialState
+            dispatch({ type: "JOINED", payload });
+            //Получаем всех юзеров с данной комнаты
             axios.get(`/rooms/${payload.roomId}`).then(({ data }) => {
-                //Получаем всех юзеров с данной комнаты
-                console.log(data.users);
-                
-                setUsers(data.users); //Диспатчим юзеров в initialState
+                //Диспатчим юзеров в initialState
+                setUsers(data.users);
             });
         },
         [dispatch, setUsers]
@@ -61,16 +62,17 @@ export const ContextProvider = ({ children }) => {
 
     const onAddMessage = useCallback(
         (message) => {
-            const date = new Date(); //Время добавления сообщения
+            //Время добавления сообщения
+            const date = new Date();
+            //Отправляем сокет запрос и данные сообщения
             socket.emit(ROOM_NEW_MESSAGE, {
-                //Отправляем сокет запрос и данные сообщения
                 roomId: state.roomId,
                 userName: state.userName,
                 text: message,
                 date: date.toLocaleString(),
             });
+            //Диспатчим данные сообщения в initialState
             setMessages({
-                //Диспатчим данные сообщения в initialState
                 userName: state.userName,
                 text: message,
                 date: date,
@@ -80,12 +82,12 @@ export const ContextProvider = ({ children }) => {
     );
 
     useEffect(() => {
+        //Получаем новых пользователей от сокета
         socket.on(ROOM_SET_USERS, (users) => {
-            //Получаем новых пользователей от сокета
             setUsers(users);
         });
+        //Получаем новые сообщения от сокета
         socket.on(ROOM_NEW_MESSAGE, (messages) => {
-            //Получаем новые сообщения от сокета
             setMessages(messages);
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps

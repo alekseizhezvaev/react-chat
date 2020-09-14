@@ -13,7 +13,7 @@ const FormRoom = ({ title, roomId: initialRoomId = "", isJoin }) => {
     const [roomId, setRoomId] = useState(initialRoomId);
     const { onLogin } = useContext(Context);
 
-    const onEnter = (event) => {
+    const onEnter = useCallback((event) => {
         event.preventDefault();
         if (!roomId || !userName) {
             return;
@@ -31,7 +31,7 @@ const FormRoom = ({ title, roomId: initialRoomId = "", isJoin }) => {
             onLogin(payload);
             history.push(`room/${roomId}?userName=${userName}`);
         });
-    };
+    }, [roomId, userName, history, onLogin]);
 
     const handleChangeRoomId = useCallback((event) => {
         setRoomId(event.target.value);

@@ -23,7 +23,7 @@ const Room = ({ match, location }) => {
         (roomId) => {
             axios.get(`/rooms/${roomId}`).then(({ data }) => {
                 if (data.users.length === 0) {
-                    // Если пользователей нет, редирект на /create-room
+                    // Если пользователей в данной комнате нет, редирект на /create-room
                     history.push("/create-room");
                     return;
                 }
