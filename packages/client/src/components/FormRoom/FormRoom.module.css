@@ -1,0 +1,33 @@
+.FormRoom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 50%;
+    height: 100vh;
+    min-height: 300px;
+    max-height: 500px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-top: 10px solid #2185d0;
+    margin-top: 100px;
+}
+
+.Title {
+    color: #2185d0;
+}
+
+.Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.Button {
+    width: 100%;
+}
+
+.Box > div {
+    margin-bottom: 20px;
+}

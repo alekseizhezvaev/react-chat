@@ -1,0 +1,15 @@
+.ChatMessage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 60%;
+}
+
+.MessageContent {
+    padding: 5px;
+    overflow-wrap: anywhere;
+}
+
+.MessageDate {
+    opacity: 0.6;
+}

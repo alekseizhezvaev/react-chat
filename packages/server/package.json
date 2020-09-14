@@ -1,0 +1,17 @@
+{
+    "name": "@chat/server",
+    "version": "1.0.0",
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^2.3.0",
+        "@chat/common": "1.0.0"
+    },
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "devDependencies": {
+        "eslint": "^7.9.0",
+        "nodemon": "^2.0.4"
+    }
+}

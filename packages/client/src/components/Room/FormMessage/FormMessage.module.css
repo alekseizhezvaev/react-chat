@@ -1,0 +1,10 @@
+.FormMessage {
+    padding: 10px 50px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 20%;
+    border-top: 2px solid #ccc;
+    background-color: #ece9e9;
+}
