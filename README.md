@@ -2,21 +2,21 @@
 
 Для запуска приложения требуется запустить сначала сервер, затем клиент.
 
-### `yarn install`
-
 Установка зависимостей
 
-### `yarn start:server`
+### `yarn install`
 
 Запуск сервера
 
-### `yarn start:client`
+### `yarn start:server`
 
 Запуск клиента
 
-### `yarn dev:server`
+### `yarn start:client`
 
 Запуск сервера с помощью команды nodemon для разработки
+
+### `yarn dev:server`
 
 ## Об функционале приложения
 
